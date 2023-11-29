@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Get OrderID</title>
+	<style>
+		form.form-order {
+			display: table;
+		}
+
+		div.form-order {
+			display: table-row;
+		}
+
+		label,
+		input {
+			display: table-cell;
+			margin-bottom: 10px;
+		}
+
+		label {
+			padding-right: 10px;
+		}
+	</style>
+	<script>
+		// alert(111)
+	</script>
+</head>
+<body>
+<form action="/" method="post" class="form-order">
+	<div class="form-order">
+		<label for="uid_id">Enter your UID: </label>
+		<input type="text" name="uid_id" id="uid_id" minlength="3" required />
+	</div>
+	<div class="form-order">
+		<input type="submit" value="Submit!" />
+	</div>
+</form>
+	<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 20px">
+	<table>
+		<tr><td>Order:</td></tr>
+		<tr><td><b>order_uid: </b> {{.OrderUid}}</td></tr>
+		<tr><td><b>track_number: </b> {{.TrackNumber}}</td></tr>
+		<tr><td><b>entry: </b> {{.Entry}}</td></tr>
+		<tr><td><b>locale: </b> {{.Locale}}</td></tr>
+		<tr><td><b>internal_signature: </b> {{.InternalSignature}}</td></tr>
+		<tr><td><b>customer_id: </b>{{.CustomerId}}</td></tr>
+		<tr><td><b>delivery_service: </b>{{.DeliveryService}}</td></tr>
+		<tr><td><b>shardkey: </b>{{.Shardkey}}</td></tr>
+		<tr><td><b>sm_id: </b>{{.SmId}}</td></tr>
+		<tr><td><b>date_created: </b>{{.DateCreated}}</td></tr>
+		<tr><td><b>oof_shard: </b>{{.OofShard}}</td></tr>
+	</table>
+
+	<table>
+		<tr><td>Deliver:</td></tr>
+		<tr><td><b>name: </b> {{.Deliver.Name}}</td></tr>
+		<tr><td><b>phone: </b> {{.Deliver.Phone}}</td></tr>
+		<tr><td><b>zip: </b> {{.Deliver.Zip}}</td></tr>
+		<tr><td><b>city: </b> {{.Deliver.City}}</td></tr>
+		<tr><td><b>address: </b> {{.Deliver.Address}}</td></tr>
+		<tr><td><b>region: </b>{{.Deliver.Region}}</td></tr>
+		<tr><td><b>email: </b>{{.Deliver.Email}}</td></tr>
+	</table>
+
+	<table>
+		<tr><td>Payment:</td></tr>
+		<tr><td><b>transaction: </b> {{.Deliver.Name}}</td></tr>
+		<tr><td><b>request_id: </b> {{.Deliver.Phone}}</td></tr>
+		<tr><td><b>currency: </b> {{.Deliver.Zip}}</td></tr>
+		<tr><td><b>provider: </b> {{.Deliver.City}}</td></tr>
+		<tr><td><b>amount: </b> {{.Deliver.Address}}</td></tr>
+		<tr><td><b>payment_dt: </b>{{.Deliver.Region}}</td></tr>
+		<tr><td><b>bank: </b>{{.Deliver.Email}}</td></tr>
+		<tr><td><b>delivery_cost: </b>{{.Deliver.Email}}</td></tr>
+		<tr><td><b>goods_total: </b>{{.Deliver.Email}}</td></tr>
+		<tr><td><b>custom_fee: </b>{{.Deliver.Email}}</td></tr>
+	</table>
+	<table style="padding-top: 10px;display: table-cell">
+		<tr><td><b>Products:</b></td></tr>
+		{{ range .Product }}
+		<tbody style="padding-bottom: 10px;display: table-cell">
+				<tr><td><b>chrt_id: </b>{{.ChrtId}}</td></tr>
+				<tr><td><b>track_number: </b>{{.TrackNumber}}</td></tr>
+				<tr><td><b>price: </b>{{.Price}}</td></tr>
+				<tr><td><b>rid: </b>{{.Rid}}</td></tr>
+				<tr><td><b>name: </b>{{.Name}}</td></tr>
+				<tr><td><b>sale: </b>{{.Sale}}</td></tr>
+				<tr><td><b>size: </b>{{.Size}}</td></tr>
+				<tr><td><b>total_price: </b>{{.TotalPrice}}</td></tr>
+				<tr><td><b>nm_id: </b>{{.NmId}}</td></tr>
+				<tr><td><b>brand: </b>{{.Brand}}</td></tr>
+				<tr><td><b>status: </b>{{.Status}}</td></tr>
+		</tbody>
+		{{ end }}
+	</table>
+	</div>
+</body>
+</html>
